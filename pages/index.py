@@ -16,17 +16,16 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Your Value Proposition
+            ## What's that car worth?
 
-            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
+            Are you interested in knowing the price people are actually selling their car for?
 
-            ✅ RUN is a running app that adapts to your fitness levels and designs personalized workouts to help you improve your running.
+            You can use this app to predict selling prices based on actual craigslist ads!
 
-            ❌ RUN is the only intelligent running app that uses sophisticated deep neural net machine learning to make your run smarter because we believe in ML driven workouts.
 
             """
         ),
-        dcc.Link(dbc.Button('Your Call To Action', color='primary'), href='/predictions')
+        dcc.Link(dbc.Button('Find that price', color='primary'), href='/predictions')
     ],
     md=4,
 )
