@@ -29,7 +29,7 @@ column1 = dbc.Col(
 
             """
         ),
-        
+    # Year    
           html.Div(children='Year', style={
         'textAlign': 'center'}),
 
@@ -41,7 +41,7 @@ column1 = dbc.Col(
                 value='1999',
                 className = 'mb-4',
                 ),
-
+    # Manufacturer
         html.Div(children='Manufacturer', style={
         'textAlign': 'center'}),
 
@@ -96,16 +96,59 @@ column1 = dbc.Col(
             className = 'mb-3',
             value=1
         ),
+    # Cylinders    
+        html.Div(children='Cylinders', style={
+        'textAlign': 'center'}),
 
-         html.Div(children='Odometer', style={
+        dcc.Slider(
+                    id = 'input_cylinders'
+                    min=2,
+                    max=12,
+                    marks={i: 'Label {}'.format(i) for i in range(2,13,2)},
+                    value=4,
+                ),  
+    # Fuel
+        html.Div(children='Fuel Type', style={
+        'textAlign': 'center'}),
+
+        dcc.Dropdown(
+            id='input_fuel', 
+            options= [
+                {'label': 'Gas', 'value': 'gas'},
+                {'label': 'Hybrid', 'value': 'hybrid'},
+                {'label': 'Electric', 'value': 'electric'},
+                {'label': 'Diesel', 'value': 'diesel'},
+                {'label': 'Other', 'value': 'nan'}
+            ],
+            className = 'mb-3',
+            value=3
+        ),
+    # Odometer
+        html.Div(children='Odometer', style={
         'textAlign': 'center'
-    }),
+        }),
         dcc.Input(
                 id='input_odometer',
                 placeholder='Enter a value in miles...',
                 type='number',
                 value='20000'
-                ) 
+                ),
+
+    # Drive
+         html.Div(children='Drive Type', style={
+        'textAlign': 'center'
+        }),
+
+        dcc.RadioItems(
+                        id='input_drive',
+                        options=[
+                        {'label': 'Front-Wheel Drive', 'value': 'fwd'},
+                        {'label': 'Rear-Wheel Drive', 'value': 'rwd'},
+                        {'label': 'All-Wheel Drive', 'value': '4wd'},
+                        {'label': 'Other', 'value': 'nan'}
+                        ],
+                        value='fwd'
+                    )  
     ],
     md=4,
 )
