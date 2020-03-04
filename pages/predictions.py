@@ -16,7 +16,7 @@ from app import app
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
 
 # Load pipeline
-pipeline = load('./notebooks/pipeline_drive.joblib')
+pipeline = load('/notebooks/pipeline_drive.joblib')
 
 
 column1 = dbc.Col(
