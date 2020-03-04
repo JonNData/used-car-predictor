@@ -15,6 +15,7 @@ joblib = "==0.14.1"
 scikit-learn = "==0.21.3"
 category-encoders = "==2.1.0"
 dash-daq = "*"
+sklearn = "==0.22.1"
 
 [requires]
 python_version = "3"

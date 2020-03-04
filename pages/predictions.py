@@ -31,7 +31,7 @@ column1 = dbc.Col(
         ),
     # Year    
           html.Div(children='Year', style={
-        'textAlign': 'center'}),
+        'textAlign': 'left'}),
 
 
         dcc.Input(
@@ -43,7 +43,7 @@ column1 = dbc.Col(
                 ),
     # Manufacturer
         html.Div(children='Manufacturer', style={
-        'textAlign': 'center'}),
+        'textAlign': 'left'}),
 
          dcc.Dropdown(
             id='input_manufacturer', 
@@ -98,18 +98,19 @@ column1 = dbc.Col(
         ),
     # Cylinders    
         html.Div(children='Cylinders', style={
-        'textAlign': 'center'}),
+        'textAlign': 'left'}),
 
         dcc.Slider(
-                    id = 'input_cylinders'
+                    id = 'input_cylinders',
                     min=2,
                     max=12,
-                    marks={i: 'Label {}'.format(i) for i in range(2,13,2)},
+                    marks={i: '{}'.format(i) for i in range(2,13,2)},
+                    className = 'mb-3',
                     value=4,
                 ),  
     # Fuel
         html.Div(children='Fuel Type', style={
-        'textAlign': 'center'}),
+        'textAlign': 'left'}),
 
         dcc.Dropdown(
             id='input_fuel', 
@@ -125,29 +126,31 @@ column1 = dbc.Col(
         ),
     # Odometer
         html.Div(children='Odometer', style={
-        'textAlign': 'center'
+        'textAlign': 'left'
         }),
         dcc.Input(
                 id='input_odometer',
                 placeholder='Enter a value in miles...',
                 type='number',
+                className = 'mb-3',
                 value='20000'
                 ),
 
     # Drive
-         html.Div(children='Drive Type', style={
-        'textAlign': 'center'
+         html.Div(children='Drive Type', className = 'mb-1',style={
+        'textAlign': 'left'
         }),
 
         dcc.RadioItems(
                         id='input_drive',
                         options=[
-                        {'label': 'Front-Wheel Drive', 'value': 'fwd'},
-                        {'label': 'Rear-Wheel Drive', 'value': 'rwd'},
-                        {'label': 'All-Wheel Drive', 'value': '4wd'},
-                        {'label': 'Other', 'value': 'nan'}
+                        {'label': 'Front-Wheel Drive ', 'value': 'fwd'},
+                        {'label': 'Rear-Wheel Drive ', 'value': 'rwd'},
+                        {'label': 'All-Wheel Drive ', 'value': '4wd'},
+                        {'label': 'Other ', 'value': 'nan'}
                         ],
-                        value='fwd'
+                        value='fwd',
+                        className = 'mr-2'
                     )  
     ],
     md=4,
