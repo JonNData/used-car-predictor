@@ -6,6 +6,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 from joblib import load
 import dash_daq as daq
+import pandas as pd
 
 
 # Imports from this application
@@ -15,7 +16,7 @@ from app import app
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
 
 # Load pipeline
-pipeline = load('notebooks/rfsmall_pipeline.joblib')
+pipeline = load('notebooks/pipeline_drive.joblib')
 
 
 column1 = dbc.Col(
@@ -23,7 +24,7 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Predictions
+            ## Inputs
 
             Fill out the car specifications
 
@@ -150,7 +151,7 @@ column1 = dbc.Col(
                         {'label': 'Other ', 'value': 'nan'}
                         ],
                         value='fwd',
-                        className = 'mr-2'
+                        labelStyle={'margin-right': '20px'}
                     )  
     ],
     md=4,
@@ -163,16 +164,46 @@ column2 = dbc.Col(
                     id='my-daq-leddisplay',
                     value="10000",
                     className= 'mt-5'
-                    )  
+                    ),
+
+
+        html.H2("Prediction"),
+        html.Div(id='prediction-content', className='lead'),  
 
     ]
 )
 
 layout = dbc.Row([column1, column2])
 
+# Odometer reading
 @app.callback(
     Output(component_id='my-daq-leddisplay', component_property='value'),
     [Input(component_id='input_odometer', component_property='value')]
 )
 def update_output_div(input_value):
     return input_value
+
+
+
+# Prediction reading
+@app.callback(
+    Output('prediction-content', 'children'),
+    [Input('input_year', 'value'), 
+     Input('input_manufacturer', 'value'),
+     Input('input_cylinders', 'value'),
+     Input('input_fuel', 'value'),
+     Input('input_odometer', 'value'),
+     Input('input_drive', 'value')],
+)
+def predict(input_year, input_manufacturer, input_cylinders, input_fuel, input_odometer, input_drive):   
+    # Convert input to dataframe
+    df = pd.DataFrame(
+        data=[[input_year, input_manufacturer, input_cylinders, input_fuel, input_odometer, input_drive]],
+        columns=['year', 'manufacturer', 'cylinders', 'fuel', 'odometer', 'drive']
+    )
+
+    # Make predictions 
+    y_pred = pipeline.predict(df)[0]
+
+    # Show prediction
+    return (f'The model predicts this car has a price of ${y_pred:,.0f}')
