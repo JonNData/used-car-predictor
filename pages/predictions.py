@@ -83,7 +83,7 @@ column1 = dbc.Col(
                 {'label': 'Morgan ', 'value': 'morgan'},
                 {'label': 'Nissan ', 'value': 'nissan'},
                 {'label': 'Pontiac ', 'value': 'pontiac'},
-                {'label': 'Porche', 'value': 'porche'},
+                {'label': 'Porsche', 'value': 'porche'},
                 {'label': 'Ram ', 'value': 'ram'},
                 {'label': 'Rover ', 'value': 'rover'},
                 {'label': 'Saturn ', 'value': 'saturn'},
@@ -158,15 +158,22 @@ column1 = dbc.Col(
 )
 
 column2 = dbc.Col(
-    [   
+    [
         html.H2("Output"),
+
+        # Manufacturer emblem
+        html.Div(id='manufacturer-image'),
+        
+        
+        # Miles led display
+        html.H3(children='Miles', style={'textAlign': 'left'}, className= 'mt-5'),
         daq.LEDDisplay(
                     id='my-daq-leddisplay',
                     value="10000",
-                    className= 'mt-5'
+                    className = 'mb-5'
                     ),
 
-
+    # Prediction output
         html.H2("Prediction"),
         html.Div(id='prediction-content', className='lead'),  
 
@@ -175,11 +182,148 @@ column2 = dbc.Col(
 
 layout = dbc.Row([column1, column2])
 
+# Manufacturer emblem
+@app.callback(
+                Output('manufacturer-image', 'children'),
+                [Input('input_manufacturer', 'value')]
+            )
+
+def manufacturer_emblem(input_manufacturer):
+    if input_manufacturer == 'acura':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/acura-150x150.png', className= 'img-fluid')
+        
+    if input_manufacturer == 'aston-martin':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/aston_martin-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'alfa-romeo':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/alfa_romeo-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'audi':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/audi-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'bmw':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/bmw-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'buick':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/buick-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'cadillac':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/cadillac-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'chevrolet':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/chevrolet-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'chrysler':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/chrysler-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'dodge':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/dodge-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'ferrari':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/ferrari-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'fiat':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/fiat-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'ford':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/ford-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'gmc':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/gmc-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'harley-davidson':
+        return html.Img(src='https://simg.nicepng.com/png/small/70-701995_all-harley-davidson-logos-png-harley-davidson-logo.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'hennessey':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/10/hennessey-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'honda':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/honda-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'hyundai':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/hyundai-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'infiniti':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/inf-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'jaguar':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/jagu-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'jeep':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/jeep-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'kia':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/kia-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'land rover':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/land-rover-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'lexus':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/lexus-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'lincoln':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/linc-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'mazda':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/mazda-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'mercedes-benz':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/marchedrs-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'mercury':
+        return html.Img(src='https://www.martystransmission.com/wp-content/uploads/2018/01/mercury-logo.jpg', className= 'img-fluid')    
+        
+    if input_manufacturer == 'mini':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/mini-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'mitsubishi':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/mitub-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'morgan':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/morgan-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'nissan':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/nissan-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'pontiac':
+        return html.Img(src='https://p7.hiclipart.com/preview/756/277/149/pontiac-firebird-general-motors-car-pontiac-fiero-explicit-content-logo-thumbnail.jpg', className= 'img-fluid')    
+        
+    if input_manufacturer == 'porche':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/porsche-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'volvo':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/volvo-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'ram':
+        return html.Img(src='https://lh3.googleusercontent.com/proxy/osC3IbnnPa7376NVw2L3lGSJWhY2mhQbykpT722s15PxMBhwAAE64GJdRDmtJbAWpWgU5s8WZZUhk-qQw-cWeD08ib5TmWt-xFh2e1RB26WPrKk', className= 'img-fluid')    
+        
+    if input_manufacturer == 'rover':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/land-rover-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'saturn':
+        return html.Img(src='https://i.ya-webdesign.com/images/saturn-car-logo-png-14.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'subaru':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/subaru-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'tesla':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/tesla-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'toyota':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/toyota-150x150.png', className= 'img-fluid')    
+        
+    if input_manufacturer == 'volkswagen':
+        return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/volkswagen-150x150.png', className= 'img-fluid')    
+
+    else:
+        return html.Img(src='https://static.vecteezy.com/system/resources/thumbnails/000/140/193/small/silhouette-carros-icons-vector.jpg', className='img-fluid')
+
 # Odometer reading
 @app.callback(
     Output(component_id='my-daq-leddisplay', component_property='value'),
     [Input(component_id='input_odometer', component_property='value')]
-)
+            )
+
 def update_output_div(input_value):
     return input_value
 
