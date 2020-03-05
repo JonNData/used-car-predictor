@@ -105,9 +105,22 @@ column1 = dbc.Col(
                     id = 'input_cylinders',
                     min=2,
                     max=12,
-                    marks={i: '{}'.format(i) for i in range(2,13,2)},
+                    marks={
+                            # {'2 cylinders': '2 clndr'},
+                            # {'4 cylinders': '4 clndr'},
+                            # {'6 cylinders': '6 clndr'},
+                            # {'8 cylinders': '8 clndr'},
+                            # {'10 cylinders': '10 clndr'},
+                            # {'12 cylinders': '12 clndr'}
+                                     2: {'label': '2cyln', 'style': {'color': '#77b0b1'}},
+                                     4: {'label': '4cyln'},
+                                     6: {'label': '6cyln'},
+                                     8: {'label': '8cyln'},
+                                     10: {'label': '10cyln'},
+                                     12: {'label': '12cyln', 'style': {'color': '#f50'}}
+                                                            },
                     className = 'mb-3',
-                    value=4,
+                    value=2,
                 ),  
     # Fuel
         html.Div(children='Fuel Type', style={
@@ -147,8 +160,7 @@ column1 = dbc.Col(
                         options=[
                         {'label': 'Front-Wheel Drive ', 'value': 'fwd'},
                         {'label': 'Rear-Wheel Drive ', 'value': 'rwd'},
-                        {'label': 'All-Wheel Drive ', 'value': '4wd'},
-                        {'label': 'Other ', 'value': 'nan'}
+                        {'label': 'All-Wheel Drive ', 'value': 'nan'}
                         ],
                         value='fwd',
                         labelStyle={'margin-right': '20px'}
@@ -193,127 +205,127 @@ def manufacturer_emblem(input_manufacturer):
     if input_manufacturer == 'acura':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/acura-150x150.png'
         
-    if input_manufacturer == 'aston-martin':
+    elif input_manufacturer == 'aston-martin':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/aston_martin-150x150.png'    
         
-    if input_manufacturer == 'alfa-romeo':
+    elif input_manufacturer == 'alfa-romeo':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/alfa_romeo-150x150.png'    
         
-    if input_manufacturer == 'audi':
+    elif input_manufacturer == 'audi':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/audi-150x150.png'    
         
-    if input_manufacturer == 'bmw':
+    elif input_manufacturer == 'bmw':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/bmw-150x150.png'    
         
-    if input_manufacturer == 'buick':
+    elif input_manufacturer == 'buick':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/buick-150x150.png'    
         
-    if input_manufacturer == 'cadillac':
+    elif input_manufacturer == 'cadillac':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/cadillac-150x150.png'    
         
-    if input_manufacturer == 'chevrolet':
+    elif input_manufacturer == 'chevrolet':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/chevrolet-150x150.png'    
         
-    if input_manufacturer == 'chrysler':
+    elif input_manufacturer == 'chrysler':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/chrysler-150x150.png'    
         
-    if input_manufacturer == 'dodge':
+    elif input_manufacturer == 'dodge':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/dodge-150x150.png'    
         
-    if input_manufacturer == 'ferrari':
+    elif input_manufacturer == 'ferrari':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/ferrari-150x150.png'    
         
-    if input_manufacturer == 'fiat':
+    elif input_manufacturer == 'fiat':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/fiat-150x150.png'    
         
-    if input_manufacturer == 'ford':
+    elif input_manufacturer == 'ford':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/ford-150x150.png'    
         
-    if input_manufacturer == 'gmc':
+    elif input_manufacturer == 'gmc':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/gmc-150x150.png'    
         
-    if input_manufacturer == 'harley-davidson':
+    elif input_manufacturer == 'harley-davidson':
         return 'https://simg.nicepng.com/png/small/70-701995_all-harley-davidson-logos-png-harley-davidson-logo.png'    
         
-    if input_manufacturer == 'hennessey':
+    elif input_manufacturer == 'hennessey':
         return 'https://www.car-logos.org/wp-content/uploads/2011/10/hennessey-150x150.png'    
         
-    if input_manufacturer == 'honda':
+    elif input_manufacturer == 'honda':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/honda-150x150.png'    
         
-    if input_manufacturer == 'hyundai':
+    elif input_manufacturer == 'hyundai':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/hyundai-150x150.png'    
         
-    if input_manufacturer == 'infiniti':
+    elif input_manufacturer == 'infiniti':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/inf-150x150.png'    
         
-    if input_manufacturer == 'jaguar':
+    elif input_manufacturer == 'jaguar':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/jagu-150x150.png'    
         
-    if input_manufacturer == 'jeep':
+    elif input_manufacturer == 'jeep':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/jeep-150x150.png'    
         
-    if input_manufacturer == 'kia':
+    elif input_manufacturer == 'kia':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/kia-150x150.png'    
         
-    if input_manufacturer == 'land rover':
+    elif input_manufacturer == 'land rover':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/land-rover-150x150.png'    
         
-    if input_manufacturer == 'lexus':
+    elif input_manufacturer == 'lexus':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/lexus-150x150.png'    
         
-    if input_manufacturer == 'lincoln':
+    elif input_manufacturer == 'lincoln':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/linc-150x150.png'    
         
-    if input_manufacturer == 'mazda':
+    elif input_manufacturer == 'mazda':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/mazda-150x150.png'    
         
-    if input_manufacturer == 'mercedes-benz':
+    elif input_manufacturer == 'mercedes-benz':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/marchedrs-150x150.png'    
         
-    if input_manufacturer == 'mercury':
+    elif input_manufacturer == 'mercury':
         return 'https://www.martystransmission.com/wp-content/uploads/2018/01/mercury-logo.jpg'    
         
-    if input_manufacturer == 'mini':
+    elif input_manufacturer == 'mini':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/mini-150x150.png'    
         
-    if input_manufacturer == 'mitsubishi':
+    elif input_manufacturer == 'mitsubishi':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/mitub-150x150.png'    
         
-    if input_manufacturer == 'morgan':
+    elif input_manufacturer == 'morgan':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/morgan-150x150.png'    
         
-    if input_manufacturer == 'nissan':
+    elif input_manufacturer == 'nissan':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/nissan-150x150.png'    
         
-    if input_manufacturer == 'pontiac':
+    elif input_manufacturer == 'pontiac':
         return 'https://p7.hiclipart.com/preview/756/277/149/pontiac-firebird-general-motors-car-pontiac-fiero-explicit-content-logo-thumbnail.jpg'    
         
-    if input_manufacturer == 'porche':
+    elif input_manufacturer == 'porche':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/porsche-150x150.png'    
         
-    if input_manufacturer == 'volvo':
+    elif input_manufacturer == 'volvo':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/volvo-150x150.png'    
         
-    if input_manufacturer == 'ram':
+    elif input_manufacturer == 'ram':
         return 'https://lh3.googleusercontent.com/proxy/osC3IbnnPa7376NVw2L3lGSJWhY2mhQbykpT722s15PxMBhwAAE64GJdRDmtJbAWpWgU5s8WZZUhk-qQw-cWeD08ib5TmWt-xFh2e1RB26WPrKk'    
         
-    if input_manufacturer == 'rover':
+    elif input_manufacturer == 'rover':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/land-rover-150x150.png'    
         
-    if input_manufacturer == 'saturn':
+    elif input_manufacturer == 'saturn':
         return 'https://i.ya-webdesign.com/images/saturn-car-logo-png-14.png'    
         
-    if input_manufacturer == 'subaru':
+    elif input_manufacturer == 'subaru':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/subaru-150x150.png'    
         
-    if input_manufacturer == 'tesla':
+    elif input_manufacturer == 'tesla':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/tesla-150x150.png'    
         
-    if input_manufacturer == 'toyota':
+    elif input_manufacturer == 'toyota':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/toyota-150x150.png'    
         
-    if input_manufacturer == 'volkswagen':
+    elif input_manufacturer == 'volkswagen':
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/volkswagen-150x150.png'    
 
     else:
@@ -341,6 +353,23 @@ def update_output_div(input_value):
      Input('input_drive', 'value')],
 )
 def predict(input_year, input_manufacturer, input_cylinders, input_fuel, input_odometer, input_drive):   
+    if input_cylinders == 2:
+        input_cylinders = '2 cylinders'
+    
+    elif input_cylinders == 4:
+        input_cylinders = '4 cylinders'
+        
+    elif input_cylinders == 6:
+        input_cylinders = '6 cylinders'
+        
+    elif input_cylinders == 8:
+        input_cylinders = '8 cylinders'
+        
+    elif input_cylinders == 10:
+        input_cylinders = '10 cylinders'
+        
+    else:
+        input_cylinders = '12 cylinders'  
     # Convert input to dataframe
     df = pd.DataFrame(
         data=[[input_year, input_manufacturer, input_cylinders, input_fuel, input_odometer, input_drive]],

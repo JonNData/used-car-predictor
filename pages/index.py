@@ -17,27 +17,31 @@ column1 = dbc.Col(
             """
         
             ## What's that car worth?
-
-            Are you interested in knowing the price people are actually selling their car for?
-
-            You can use this app to predict selling prices based on actual craigslist ads!
+           """,
+           className= 'mb-5'
+        ),
+        dcc.Markdown(
+            """
+            Interested in knowing the price people are actually selling their car for?
+            Use this app to predict selling prices based on actual craigslist ads!
 
 
             """
         ),
         dcc.Link(dbc.Button('Find that price', color='primary'), href='/predictions')
     ],
-    md=4,
+    md=5,
 )
 
-gapminder = px.data.gapminder()
-fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
-           hover_name="country", log_x=True, size_max=60)
+
 
 column2 = dbc.Col(
     [
-        dcc.Graph(figure=fig),
-    ]
+        html.Div(
+            html.Img(src='assets/bmw-example.jpg')
+        )
+    ],
+     md=5,
 )
 
 layout = dbc.Row([column1, column2])
