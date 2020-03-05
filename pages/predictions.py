@@ -316,7 +316,7 @@ def manufacturer_emblem(input_manufacturer):
         return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/volkswagen-150x150.png', className= 'img-fluid')    
 
     else:
-        return html.Img(src='https://static.vecteezy.com/system/resources/thumbnails/000/140/193/small/silhouette-carros-icons-vector.jpg', className='img-fluid')
+        return html.Img(src='assets/silhouette-carros-icons-vector.jpg', className='img-fluid')
 
 # Odometer reading
 @app.callback(
