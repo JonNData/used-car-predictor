@@ -189,6 +189,7 @@ layout = dbc.Row([column1, column2])
             )
 
 def manufacturer_emblem(input_manufacturer):
+    print(input_manufacturer)
     if input_manufacturer == 'acura':
         return html.Img(src='https://www.car-logos.org/wp-content/uploads/2011/09/acura-150x150.png', className= 'img-fluid')
         
