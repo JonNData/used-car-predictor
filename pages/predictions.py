@@ -316,7 +316,7 @@ def manufacturer_emblem(input_manufacturer):
         return 'https://www.car-logos.org/wp-content/uploads/2011/09/volkswagen-150x150.png'    
 
     else:
-        return 'assets/silhouette-carros-icons-vector.jpg', className='img-fluid')
+        return 'assets/silhouette-carros-icons-vector.jpg'
 
 # Odometer reading
 @app.callback(
