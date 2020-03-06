@@ -28,11 +28,11 @@ row1 = dbc.Row(
 col1 = dbc.Col(
             dcc.Markdown(
                 """
-                Taking a look at the prices on craigslist we can see that there is something 
-                very strange right away. There has been a pricing convention on Craigslist 
-                to either not include the price or even list it as $1 just to get the click onto 
-                the ad. Additionally if it’s a dealership posting a listing they may include several
-                 cars in one listing.  
+                Visualizing the prices on craigslist we can immediately see the odd distribution.
+                 There is a pricing convention on Craigslist to either not include the price or even list it as $1
+                  to get more clicks on the ad.
+                   Additionally if it’s a dealership posting a listing they may include several
+                 cars in one listing and omit the price or display the cheapest.  
 
                 """
             ), 
@@ -48,8 +48,8 @@ row2 = dbc.Row([col1,col2], align = 'center')
 col3 = dbc.Col(
             dcc.Markdown(
                 """
-                After dropping the NaNs that would not help predict price and trimming a 
-                little bit of the outliers the distribution normalizes somewhat. There’s still
+                After dropping NaNs which would not help predict price, trimming a 
+                some of the outliers, the distribution somewhat normalizes. There’s still
                  a moderate right skew, but taking the log function turns it into a left skew 
                  so the transformation was not worth it.
 
@@ -72,7 +72,8 @@ col5 = dbc.Col(
                 with a max number of trees.  
                 
                 Even with a relatively low learning rate of 0.1, the mean absolute error drops 
-                quickly around 35 rounds or epochs.  This helped me decide which n_estimators to play around with for the final model.
+                quickly around 35 rounds or epochs.  This helped me decide which n_estimators to play around with
+                 for the final model.
 
 
 
@@ -133,9 +134,10 @@ row7 = dbc.Row(
 
             dcc.Markdown(
                 """
-                Shapley plots allow us to explain tree ensembles piece by piece.
+                Shapley plots allow us to explain tree ensembles  by each feauture.
                  In this observation the particular model of the car was highly valued,
                   pushing the price higher than the base value (average price).
+
                   """
             )
             ]        )
