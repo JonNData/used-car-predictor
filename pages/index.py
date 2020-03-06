@@ -22,8 +22,8 @@ column1 = dbc.Col(
         ),
         dcc.Markdown(
             """
-            Interested in knowing the price people are actually selling their car for?
-            Use this app to predict selling prices based on actual craigslist ads!
+            Interested in knowing the price people are listing their car for?
+            Use this app to predict asking prices based on actual craigslist ads!
 
 
             """
