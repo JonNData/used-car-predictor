@@ -21,6 +21,13 @@ row1 = dbc.Row(
             """,
             className = 'mb-4'
         ),
+        
+        dcc.Markdown(
+            """
+            Here is a choropleth heatmap showing the distribution of craiglist ads by state. The number of ads in California is dramatically higher than the rest of the country.
+            """
+        ),
+        html.Div(html.Img(src='assets/craigslist_ads_state.png', className= 'img-fluid'))
 
         )
 
