@@ -20,9 +20,26 @@ row1 = dbc.Row(
 
             """,
             className = 'mb-4'
-        ),
-
+                    )
+            )
+col_a = dbc.Row(
+            html.Div(html.Img(src='assets\craigslist_ads_state.png', className= 'img-fluid'))
         )
+col_b = dbc.Col(
+            dcc.Markdown(
+                """
+                A heatmap of the data reveals the most common ad location is in California. Population 
+                and driving culture is likely a cause for this as southern California in particular isn't 
+                well supported by public transportation.
+                 This choropleth heatmap is from the cleaned data so it could also be the case where pricing 
+                 conventions in other states more commonly use outliers.
+   
+
+                """
+            ), width = 6
+        )
+
+row_insert = dbc.Row([col_a, col_b], align = 'center')
 
 # 2nd Section
 col1 = dbc.Col(
@@ -35,7 +52,7 @@ col1 = dbc.Col(
                  cars in one listing and omit the price or display the cheapest.  
 
                 """
-            ), 
+            ) 
         )
 
 col2 = dbc.Col(
@@ -141,4 +158,4 @@ row7 = dbc.Row(
                   """
             )
             ]        )
-layout = dbc.Col([row1, row2, row3, row4, row5, row6, row7])
+layout = dbc.Col([row1, row_insert, row2, row3, row4, row5, row6, row7])
